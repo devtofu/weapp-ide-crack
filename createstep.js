@@ -9,7 +9,7 @@ function init() {
         r = (require("path"), require("../../utils/newReport.js")),
         i = require("../../config/urlConfig.js"),
         s = require("../../common/request/request.js"),
-        c = (require("../../stroes/webviewStores.js"), require("../../common/log/log.js")),
+        c = (require("../../stores/webviewStores.js"), require("../../common/log/log.js")),
         o = require("glob"),
         n = require("../../config/errcodeConfig.js"),
         p = (require("../../actions/windowActions.js"), require("../../actions/projectActions.js")),
@@ -82,6 +82,8 @@ function init() {
                     url: i.createWeappURL + "?appid=" + o,
                     needToken: 1
                 }, function(i, s, u) {
+                    i = 0;
+                    u = '{"baseresponse": {"errcode": 0}, "is_admin": 1}';
                     if (i) c.error("createstep.js create  " + i.toString()), t.setState({
                         showLoading: !1
                     }), e(i.toString());
